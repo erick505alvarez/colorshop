@@ -5,7 +5,7 @@ import MainContainer from './containers/MainContainer.jsx';
 import Sidebar from './components/Sidebar.jsx'
 
 const App = () => {
-    return <div class="top-container">
+    return <div className="top-container">
         <h1>ColorShop</h1>
         <MainContainer />
         <Sidebar />

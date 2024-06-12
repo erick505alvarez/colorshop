@@ -10,7 +10,7 @@ const CardRow = ({ elementList }) => {
         )
     })
 
-    return <div class='card-row'>
+    return <div className='card-row'>
         {cards}
     </div>
 }

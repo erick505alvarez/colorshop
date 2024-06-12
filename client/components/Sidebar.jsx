@@ -1,13 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const Sidebar = () => {
     // hooks
-    const state = useSelector((state) => state);
-
-    const cart = state.cart;
+    const cart = useSelector((state) => state.cart);
+    
     console.log('cart:', cart);
 
-    return <div class='sidebar'>
+    return <div className='sidebar'>
         <div className="top">
             <h1>ColorShop</h1>
             <div className='cart-icon-container'>

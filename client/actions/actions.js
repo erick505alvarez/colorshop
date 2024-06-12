@@ -1,13 +1,18 @@
 import * as types from '.constants/actionTypes';
 
-const updateLike = data => ({
+const updateIsLiked = data => ({
     type: types.TOGGLE_LIKE,
     payload: data
 });
 
-const updateCart = data => ({
+const updatedInCart = data => ({
     type: types.TOGGLE_CART,
     payload: data
 });
 
-export { updateLike, updateCart };
+const addToCart = data => ({
+    type: types.ADD_TO_CART,
+    payload: data,
+});
+
+export { updateIsLiked, updatedInCart, addToCart };
