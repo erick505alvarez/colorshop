@@ -20,12 +20,32 @@ module.exports = {
                         presets: ['@babel/preset-env', '@babel/preset-react']
                     }
                 }
+            },
+            {
+                test: /.(s(a|c)ss)$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
             }
         ]
     },
+    devServer: {
+        static: {
+            publicPath: path.join(__dirname, '/client')
+        },
+        compress: true,
+        port: 8080,
+        hot: true,
+        open: true,
+    },
     plugins: [
         new HTMLWebpackPlugin({
-            template: './client/index.html'
+            // template: './client/index.html'
+            template: path.join(__dirname, '/client/index.html')
         })
     ]
 }
+
+// package.json scripts
+// "start": "webpack-dev-server --mode development --open --hot",
+// "start": "webpack --mode development",
+
+// devServer.watchFiles: ['src/**/*', 'client/**/*']
