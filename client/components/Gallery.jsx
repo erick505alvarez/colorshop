@@ -19,8 +19,8 @@ const Gallery = () => {
         dispatch(fetchColors(NUM_COLORS));
     }, [dispatch]);
 
-    if (status === 'loading') return <p key={crypto.randomUUID()}>Loading...</p>;
-    if (status === 'failed') return <p key={crypto.randomUUID()}>Error: {error}</p>;
+    // if (status === 'loading') return <p key={crypto.randomUUID()}>Loading...</p>;
+    // if (status === 'failed') return <p key={crypto.randomUUID()}>Error: {error}</p>;
 
     // let element;
     // let ROW_LENGTH = 3;

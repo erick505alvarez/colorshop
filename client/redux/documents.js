@@ -82,7 +82,7 @@ export const documentSlice = createSlice({
             .addCase(fetchColors.fulfilled, (state, action) => {
                 state.status = 'succeeded';
                 state.docs = action.payload.map((color) => ({
-                    elmIId: crypto.randomUUID(),
+                    elmId: crypto.randomUUID(),
                     galleryType: 'color',
                     value: color,
                     isLiked: false,
