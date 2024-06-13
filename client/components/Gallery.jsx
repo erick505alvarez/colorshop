@@ -1,13 +1,26 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 // import CardRow from './CardRow.jsx';
 import Card from './Card.jsx';
+import { fetchColors } from '../redux/documents';
+
+const NUM_COLORS = 50;  // maybe a part of state?
 
 const Gallery = () => {
-
+    // hooks
+    const dispatch = useDispatch();
     const docs = useSelector((state) => state.documents.docs)
+    const status = useSelector((state) => state.documents.status);
+    const error = useSelector((state) => state.documents.error);
+
+    useEffect(() => {
+        dispatch(fetchColors(NUM_COLORS));
+    }, [dispatch]);
+
+    if (status === 'loading') return <p key={crypto.randomUUID()}>Loading...</p>;
+    if (status === 'failed') return <p key={crypto.randomUUID()}>Error: {error}</p>;
 
     // let element;
     // let ROW_LENGTH = 3;
