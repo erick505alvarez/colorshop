@@ -6,7 +6,7 @@ const CardRow = ({ elementList }) => {
     const cards = []
     elementList.forEach((elm) => {
         cards.push(
-            <Card elm={elm}/>
+            <Card key={crypto.randomUUID()} elm={elm}/>
         )
     })
 

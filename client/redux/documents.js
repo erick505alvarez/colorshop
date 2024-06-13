@@ -19,21 +19,23 @@ export const documentSlice = createSlice({
     },
     reducers: {
         updateIsLiked: (state, action) => {
-            console.log('updateIsLiked Reducer');
-            console.log('state:', state);
-            console.log('action:', action);
-
-            // update document isLiked variablee
+            // update document isLiked variable
                 // toggle true/false
+            // console.log('updateIsLiked Reducer');
+
+            const doc = state.docs.find(doc => doc.value === action.payload.value);
+            if (doc) {
+                doc.isLiked = !doc.isLiked;
+            }
         },
-
         updateInCart: (state, action) => {
-            console.log('updateInCart Reducer');
-            console.log('state:', state);
-            console.log('action:', action);
-
             // update document inCart variable
                 // toggle true/false
+            // console.log('updateInCart Reducer');
+            const doc = state.docs.find(doc => doc.value === action.payload.value);
+            if (doc) {
+                doc.inCart = !doc.inCart;
+            }
         }
     }
 });
