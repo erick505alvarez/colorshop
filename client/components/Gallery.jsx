@@ -37,7 +37,7 @@ const Gallery = () => {
     // console.log('docs:', docs)
     const cards = docs.map((elm) => {
         // console.log('card:', elm);
-        return <Card key={crypto.randomUUID()} elm={elm} />
+        return <Card key={elm.elmId} elm={elm} />
     });
 
     return (

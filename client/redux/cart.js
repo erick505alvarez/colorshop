@@ -28,7 +28,6 @@ export const cartSlice = createSlice({
                 inCart: true,
             });
             state.items = newItems;
-
             state.numItems++;
 
             console.log('State after:', state.items);

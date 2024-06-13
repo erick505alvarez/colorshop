@@ -5,6 +5,7 @@ const colors = ['#003049', '#d62828', '#f77f00',
 
 const initialDocs = colors.map((value) => {
     return {
+        elmId: crypto.randomUUID(),
         galleryType: 'color',
         value: value,
         isLiked: false,
@@ -23,7 +24,7 @@ export const documentSlice = createSlice({
                 // toggle true/false
             // console.log('updateIsLiked Reducer');
 
-            const doc = state.docs.find(doc => doc.value === action.payload.value);
+            const doc = state.docs.find(doc => doc.elmId === action.payload.elmId);
             if (doc) {
                 doc.isLiked = !doc.isLiked;
             }
@@ -32,7 +33,7 @@ export const documentSlice = createSlice({
             // update document inCart variable
                 // toggle true/false
             // console.log('updateInCart Reducer');
-            const doc = state.docs.find(doc => doc.value === action.payload.value);
+            const doc = state.docs.find(doc => doc.elmId === action.payload.elmId);
             if (doc) {
                 doc.inCart = !doc.inCart;
             }
