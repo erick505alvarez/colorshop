@@ -15,7 +15,7 @@ export const cartSlice = createSlice({
 
         addToCart: (state, action) => {
             // update cart state
-                // add to cart list
+                // add/remove to cart list
                 // state.items.push(action.payload)
                 // increment numCartItems
             console.log('State before:', state.items);
@@ -23,13 +23,20 @@ export const cartSlice = createSlice({
 
             // Add the document to the items array and increment numItems
             const newItems = state.items.slice();
-            newItems.push({
-                ...action.payload,
-                inCart: true,
-            });
+            const existingItemIndex = newItems.findIndex(doc => doc.elmId === action.payload.elmId);
+            // if item already in cart, remove it
+            if (existingItemIndex !== -1) {
+                newItems.splice(existingItemIndex, 1);
+                state.numItems--;
+            } else {
+                newItems.push({
+                    ...action.payload,
+                    inCart: true,
+                });
+                state.numItems++;
+            }
             state.items = newItems;
-            state.numItems++;
-
+            
             console.log('State after:', state.items);
         }
     },
